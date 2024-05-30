@@ -3,6 +3,7 @@ import Input from "../../components/Input";
 import FatecLogo from "../../assets/images/logo-fatec.png";
 import { Path, Svg } from "react-native-svg";
 import Ionicon from "react-native-vector-icons/Ionicons";
+import FBM from "../../components/FBM";
 
 export default function Home({ navigation }) {
   return (
@@ -38,7 +39,7 @@ export default function Home({ navigation }) {
       <Box px={10}>
         <Button
           onPress={() => {
-            navigation.navigate("Tabs");
+            navigation.navigate("MainApp");
           }}
           rightIcon={<Ionicon name="enter" color="white" size={18} />}
           bgColor={"rgb(178,0,0)"}
