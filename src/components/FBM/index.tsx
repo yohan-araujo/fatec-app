@@ -20,11 +20,6 @@ const TabArr = [
     icon: "time",
   },
   {
-    route: "Avisos",
-    text: "Avisos",
-    icon: "alert",
-  },
-  {
     route: "Carteira",
     text: "Carteira",
     icon: "id-card",
