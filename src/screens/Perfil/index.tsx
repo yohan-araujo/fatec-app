@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Avatar, Box, Button, HStack, Switch, Text, VStack } from "native-base";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import CardAula from "../../components/CardAula";
+import SelectDiaSemana from "./SelectDiaSemana";
 
 export default function Perfil({ navigation }) {
+  const [diaSelecionado, setDiaSelecionado] = useState("Segunda");
+
   return (
     <VStack flex={1} p={5}>
       <HStack space={3}>
@@ -46,32 +50,13 @@ export default function Perfil({ navigation }) {
         </HStack>
       </HStack>
 
-      <HStack
-        bgColor={"#bfbfbf"}
-        justifyContent={"space-between"}
-        py={3}
-        px={4}
-        mt={8}
-        rounded={"md"}
-      >
-        <Text fontSize={16} fontWeight={"bold"} opacity={"20"}>
-          S
-        </Text>
-        <Text fontSize={16} fontWeight={"bold"}>
-          T
-        </Text>
-        <Text fontSize={16} fontWeight={"bold"} opacity={"20"}>
-          Q
-        </Text>
-        <Text fontSize={16} fontWeight={"bold"} opacity={"20"}>
-          Qi
-        </Text>
-        <Text fontSize={16} fontWeight={"bold"} opacity={"20"}>
-          Se
-        </Text>
-      </HStack>
+      <SelectDiaSemana
+        diaSelecionado={diaSelecionado}
+        setDiaSelecionado={setDiaSelecionado}
+      />
+
       <Box mt={8}>
-        <CardAula />
+        <CardAula diaSelecionado={diaSelecionado} />
       </Box>
     </VStack>
   );

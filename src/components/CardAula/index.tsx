@@ -9,16 +9,41 @@ import {
   VStack,
 } from "native-base";
 
-export default function CardAula() {
+export default function CardAula({ diaSelecionado }) {
   const { isOpen, onOpen, onClose } = useDisclose();
 
+  const aulas = {
+    Segunda: {
+      disciplina: "Laboratorio de banco de dados",
+      professor: "Rodrigo Dionisio",
+      horario: "00:00-00:00",
+    },
+    Terça: {
+      disciplina: "Programação Web",
+      professor: "Maria Silva",
+      horario: "10:00-12:00",
+    },
+    Quarta: {
+      disciplina: "História",
+      professor: "Maria Silva",
+      horario: "10:00-12:00",
+    },
+    Quinta: {
+      disciplina: "Português",
+      professor: "Maria Silva",
+      horario: "10:00-12:00",
+    },
+    Sexta: {
+      disciplina: "Matemática",
+      professor: "Maria Silva",
+      horario: "10:00-12:00",
+    },
+  };
+
+  const aula = aulas[diaSelecionado];
+
   return (
-    <Box
-      borderWidth={2}
-      borderColor={"rgb(178,0,0)"}
-      rounded={"md"}
-      bgColor={"#bfbfbf"}
-    >
+    <Box borderWidth={2} borderColor={"rgb(178,0,0)"} rounded={"md"}>
       <VStack p={3}>
         <HStack
           justifyContent={"center"}
@@ -27,16 +52,21 @@ export default function CardAula() {
           px={6}
         >
           <Avatar size={"lg"} />
-          <Text fontSize={18} fontWeight={"bold"} textAlign={"center"}>
-            Laboratorio de banco de dados
+          <Text
+            fontSize={18}
+            fontWeight={"bold"}
+            textAlign={"center"}
+            color={"rgb(178,0,0)"}
+          >
+            {aula.disciplina}
           </Text>
         </HStack>
         <Text fontSize={16} textAlign={"center"}>
-          Rodrigo Dionisio
+          {aula.professor}
         </Text>
 
         <Text fontSize={16} textAlign={"center"}>
-          00:00-00:00
+          {aula.horario}
         </Text>
 
         <Button
